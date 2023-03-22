@@ -7,6 +7,23 @@ const app=express();
 //by default website run on port 80
 const port=9000;
 
+// requiring layout
+const expressLayouts= require('express-ejs-layouts');
+
+//telling server to use assets folder
+app.use(express.static('./assets'));
+
+//informing server to use layouts
+app.use(expressLayouts);
+
+//extract style and script from sub pages into layouts
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
+// setting up view engine
+ app.set('view engine','ejs');
+ app.set('views','./views');
+
 
 
 //use express router
