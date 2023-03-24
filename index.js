@@ -1,6 +1,11 @@
 // require express
 const express= require('express');
 
+// requiring the installed cookie library
+const cookieParser= require('cookie-parser');
+
+// const db=require('./config/mongoose');
+
 //firing express or running express
 const app=express();
 
@@ -9,6 +14,14 @@ const port=9000;
 
 // requiring layout
 const expressLayouts= require('express-ejs-layouts');
+
+//requiring db
+const db= require('./config/mongoose');
+
+//reading through post request
+app.use(express.urlencoded());
+app.use(cookieParser());
+
 
 //telling server to use assets folder
 app.use(express.static('./assets'));
