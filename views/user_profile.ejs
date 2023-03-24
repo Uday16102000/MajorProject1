@@ -12,6 +12,11 @@
         <!-- <%- include('_header'); %> -->
         <link rel="stylesheet" href="/css/user_profile.css">
         <h1>User Codeial <%= title %> </h1>
+        <p>Name: <%= user.name %></p>
+        <p>Email: <%= user.email %></p>
+        <form action="/users/signout" method="POST">
+        <input type="submit" value="Signout">
+        </form>
         <!-- <footer>
         Footer
         </footer> -->
