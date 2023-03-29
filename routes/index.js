@@ -1,5 +1,7 @@
 // require or import express
 const express= require('express');
+// const passport=require('passport');
+
 
 //firing up router
 const router=express.Router();

@@ -1,4 +1,7 @@
-body{
-    margin:0;
-    /* text-align: center; */
+body {
+  margin: 0;
+  height: 76%;
 }
+body #layout-main {
+  height: 100%;
+}/*# sourceMappingURL=layout.css.map */

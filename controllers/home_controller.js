@@ -10,7 +10,7 @@ module.exports.home=function(req,res){
 
     //editing cookie
     res.cookie('user_id',34);
-    return res.render('home',{
+    return res.render('home1',{
         title:"Home"
     });
 };
