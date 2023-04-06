@@ -13,9 +13,27 @@ module.exports.create=function(req,res){
                 post.comments.push(comment);
                 post.save();
                 comment.save();
-                console.log(comment.user);
+                // console.log(comment.user);
                 res.redirect('/');
             })
+        }
+    })
+}
+
+
+module.exports.destroy=function(req,res){
+    Comment.findById(req.params.id,function(err,comment){
+        if(comment.user == req.user.id){
+            let postId=comment.post;
+            comment.remove();
+            Post.findByIdAndUpdate(postId,{$pull:
+            {
+                comments:req.params.id
+            }},function(err,post){
+                return res.redirect('back');
+            })
+        }else{
+            return res.redirect('back')
         }
     })
 }
