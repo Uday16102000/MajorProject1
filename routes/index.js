@@ -18,6 +18,7 @@ router.get('/',homeController.home);
 router.use('/users',require('./users'));
 router.use('/assignment',require('./assignment'));
 router.use('/posts',require('./posts'));
+router.use('/comments',require('./comments'));
 
 //exporting router so that app can use it
 module.exports=router;
