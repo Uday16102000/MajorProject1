@@ -1,6 +1,6 @@
 const Post=require('../models/post');
 const Comment=require('../models/comment');
-const user=require('../models/user');
+const User=require('../models/user');
 
 module.exports.home=function(req,res){
 
@@ -9,17 +9,23 @@ Post.find({})
 .populate('user')
 .populate({
     path:'comments',populate:{
-        path:'user'
+        path:'user post'
     }
 }).exec(function(err,posts){
-    if(err){
-        console.log("Error in finding posts:", err);
-        return;
-      }
-    //   console.log("Posts found:", posts);
-    return res.render('home1',{
-        title:"Codeial|Home",
-        posts:posts,
+
+    User.find({},function (err,users){
+        if(err){
+            console.log("Error in finding users:", err);
+            return;
+          }
+       
+        return res.render('home1',{
+            title:"Codeial|Home",
+            posts:posts,
+            all_users:users
+
+    })
+   
         
 });
 

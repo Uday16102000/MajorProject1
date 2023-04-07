@@ -1,9 +1,10 @@
 <li>
     <p>
-            <% if(locals.user && locals.user.id==comment.user.id){ %>
+            <% if(locals.user && (locals.user.id==comment.user.id || locals.user.id == comment.post.user )){ %>
                     <small>
                             <a href="/comments/destroy/<%= comment.id %>">X</a>
                     </small>
+                    
                     <%} %>
             <%= comment.content %>
             <br>
@@ -13,3 +14,5 @@
             </small>
     </p>
     </li>
+
+  
