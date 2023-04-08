@@ -2,36 +2,58 @@ const Post=require('../models/post');
 const Comment=require('../models/comment');
 const User=require('../models/user');
 
-module.exports.home=function(req,res){
-
-
-Post.find({})
+module.exports.home=async function(req,res){
+try{
+let posts=await Post.find({})
 .populate('user')
 .populate({
     path:'comments',populate:{
         path:'user post'
     }
-}).exec(function(err,posts){
+})
+let users= await User.find({});
 
-    User.find({},function (err,users){
-        if(err){
-            console.log("Error in finding users:", err);
-            return;
-          }
+return res.render('home1',{
+    title:"Codeial|Home",
+    posts:posts,
+    all_users:users
+
+})}catch(err){
+
+        console.log('Error',err)
+        return;
+}
+
+    
+}
+
+// Post.find({})
+// .populate('user')
+// .populate({
+//     path:'comments',populate:{
+//         path:'user post'
+//     }
+// }).exec(function(err,posts){
+
+//     User.find({},function (err,users){
+//         if(err){
+//             console.log("Error in finding users:", err);
+//             return;
+//           }
        
-        return res.render('home1',{
-            title:"Codeial|Home",
-            posts:posts,
-            all_users:users
+//         return res.render('home1',{
+//             title:"Codeial|Home",
+//             posts:posts,
+//             all_users:users
 
-    })
+//     })
    
         
-});
+// });
 
-})
+
 // console.log(comment.user);
-}
+
     // return res.render('home1',{
     //     title:"Home"
     // }
