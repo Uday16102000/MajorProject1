@@ -1,5 +1,5 @@
 const User= require('../models/user');
-
+//lets keep it as before no async await
 module.exports.profile=function(req,res){
     User.findById(req.params.id,function(err,user){
         res.render('user_profile1',{
