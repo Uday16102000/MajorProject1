@@ -3,6 +3,8 @@
         <title>
         <%= title %>
         </title>
+       
+       
         <link rel="stylesheet" href="/css/layout.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/footer.css">
@@ -10,7 +12,15 @@
     </head>
     <body>
      
+     
         <%- include('_header1'); %>
+
+      <% if(flash.success && flash.success.length>0) { %>
+      <h5>
+        <%= flash.success  %>
+      </h5>
+      <% } %>
+        
         <main id="layout-main">
              <%- body %>
 
@@ -18,6 +28,13 @@
      
       
         <%- include('_footer'); %>
+       
         <%- script %>
+        <script>
+          
+            
+          
+                
+                </script>
     </body>
 </html>

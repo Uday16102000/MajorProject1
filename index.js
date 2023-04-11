@@ -33,6 +33,9 @@ const MongoStore=require('connect-mongodb-session')(session);
 //requiring node sass mideelware
 // const sassMiddleware=require('node-sass-middleware');  
 
+const flash=require('connect-flash');
+const customMware=require('./config/middleware');//to use this go below and add use statement
+
 
 
 // app.use(sassMiddleware({
@@ -91,7 +94,8 @@ app.set('layout extractScripts',true);
 
  app.use(passport.setAuthenticatedUser);
 
-
+app.use(flash());
+app.use(customMware.setFlash)
 
 
 //use express router
