@@ -8,11 +8,12 @@ module.exports.create= async function(req,res){
             content:req.body.content,
             user:req.user._id
         });
+        req.flash('success','Post created successfully!');
         return res.redirect('back')
 
     }catch(err){
-        console.log('err in creating post');
-        return;
+       req.flash('error',err);
+       return res.redirect('back')
     }
     
 
@@ -34,13 +35,14 @@ module.exports.destroy= async function(req,res){
            
            
             })
+            req.flash('success','Post Deleted Successfully');
             return res.redirect('back');
         }else{
             return res.redirect('back');
         }
     }
     catch(err){
-        console.log('Error',err);
+       req.flash('error',err);
         return;
 
     }
