@@ -77,7 +77,7 @@ app.set('layout extractScripts',true);
         maxAge:(1000*60*100)
     },
     store:new MongoStore({
-     uri:'mongodb://0.0.0.0:27017/codeial_development',
+     uri:'mongodb://0.0.0.0/codeial_development',
       autoRemove:'disabled' 
     
     },

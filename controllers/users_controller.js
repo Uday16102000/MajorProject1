@@ -57,10 +57,12 @@ module.exports.create=function(req,res){
                     return;
 
                 }
+                req.flash('success','New User Created')
                 return res.redirect('/users/signIn');
             })
         
         }else{
+           
             return res.redirect('back');
         }
     })

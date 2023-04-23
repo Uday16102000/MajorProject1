@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //providiing connection to databse
-mongoose.connect('mongodb://0.0.0.0:27017/codeial_developmentUday');
+mongoose.connect('mongodb://0.0.0.0/codeial_developmentUday');
 
 const db=mongoose.connection;
 

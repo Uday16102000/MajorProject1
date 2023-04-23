@@ -1,13 +1,27 @@
 const Post= require('../models/post');
 const Comment=require('../models/comment');
+const User=require('../models/user');
 
 module.exports.create= async function(req,res){
     //creating a post
     try{
-        Post.create({
+       
+     let post =  await Post.create({
             content:req.body.content,
             user:req.user._id
-        });
+        })
+        post = await post.populate('user','name');
+     
+        if(req.xhr)
+        {
+          
+            return res.status(200).json({
+                data:{
+                    post:post
+                },
+                message:'Post created!'
+            })
+        }
         req.flash('success','Post created successfully!');
         return res.redirect('back')
 
