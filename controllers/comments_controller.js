@@ -11,10 +11,22 @@ module.exports.create= async function(req,res){
                 user:req.user._id,
                 postUser: req.params.userId, // set the post's user ID here
             });
+            if(req.xhr)
+                {
+                  
+                    return res.status(200).json({
+                        data:{
+                            comment:comment
+                        },
+                        message:'Comment created!'
+                    })
+                }
            
                 post.comments.push(comment);
                 post.save();
                 comment.save();
+                // comment = await comment.populate('user','name');
+                
                 req.flash('success','Comment created sucessfully!');
                 // console.log(comment.user);
                 res.redirect('/');

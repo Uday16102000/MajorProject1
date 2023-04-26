@@ -49,6 +49,14 @@ module.exports.destroy= async function(req,res){
            
            
             })
+            if(req.xhr)
+            {
+                return res.status(200).json({
+                    data:{
+                        post_id:req.params.id
+                    },message:"Post deleted successfully"
+                })
+            }
             req.flash('success','Post Deleted Successfully');
             return res.redirect('back');
         }else{
