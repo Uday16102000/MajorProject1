@@ -1,12 +1,11 @@
-
 const express= require('express');
 // const passport=require('passport');
 
 
 //firing up router
 const router=express.Router();
-const postsApi=require("../../../controllers/api/v1/posts_api")
+const usersApi=require("../../../controllers/api/v1/users_api")
 
-router.get('/',postsApi.index);
-router.delete('/:id',postsApi.destroy)
+router.post('/create-session',usersApi.createSession);
+
 module.exports=router;

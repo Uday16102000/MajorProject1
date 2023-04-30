@@ -27,6 +27,9 @@ const passport= require('passport');
 //requiring  passportLocal
 const passportLocal=require('./config/passport_local_strategy');
 
+//requiring passport jwt startegy
+const passportJWT=require('./config/passport-jwt-strategy');
+
 //requiring mongo store
 const MongoStore=require('connect-mongodb-session')(session);
 
