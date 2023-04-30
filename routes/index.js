@@ -20,5 +20,7 @@ router.use('/assignment',require('./assignment'));
 router.use('/posts',require('./posts'));
 router.use('/comments',require('./comments'));
 
+router.use('/api',require('./api'));
+
 //exporting router so that app can use it
 module.exports=router;
