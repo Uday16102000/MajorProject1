@@ -7,7 +7,7 @@ module.exports.createSession= async function(req,res){
         let user= await User.findOne({
             email:req.body.email
         });
-        console.log(user);
+        // console.log(user);
         if(!user || user.password!=req.body.password)
         {
             
@@ -19,7 +19,7 @@ module.exports.createSession= async function(req,res){
             message:"Sign in succesfully here is your token",
             data:{
                 token:jwt.sign(user.toJSON(),'codeial',{
-                    expiresIn:'100000'
+                    expiresIn:'1000000'
                 })
             }
         })

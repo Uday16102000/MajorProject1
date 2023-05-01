@@ -11,7 +11,7 @@ const User= require('../models/user');
 let opts={
 
     //header have set of key inside that one is auth ,authe have set of key one is bearer
-    jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken,
+    jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey:'codeial'
 }
 
@@ -26,7 +26,10 @@ passport.use(new JWTStrategy(opts,function(jwtPayLoad,done){
         {
             return(null,user)
         }
-        else(null,false)
+        else
+        {
+            return(null,false)
+        }
     })
 }))
 module.exports=passport;
