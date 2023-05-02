@@ -29,6 +29,7 @@ const passportLocal=require('./config/passport_local_strategy');
 
 //requiring passport jwt startegy
 const passportJWT=require('./config/passport-jwt-strategy');
+const passportGoogle=require('./config/passport-google-oauth2-strategy')
 
 //requiring mongo store
 const MongoStore=require('connect-mongodb-session')(session);
