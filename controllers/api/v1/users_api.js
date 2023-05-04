@@ -15,7 +15,7 @@ module.exports.createSession= async function(req,res){
                 message:"Invalid/Username Password"
             });
         }
-        return res.json(200,{
+        return res.status(200).json({
             message:"Sign in succesfully here is your token",
             data:{
                 token:jwt.sign(user.toJSON(),'codeial',{

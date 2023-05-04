@@ -20,7 +20,11 @@ module.exports.index= async function(req,res)
 module.exports.destroy= async function(req,res){
 
     try{
+        console.log("Inside destroy")
         let post= await Post.findById(req.params.id)
+        if(post){
+
+        
         //.id means converting the object id into string
         if(post.user==req.user.id)
         {
@@ -31,8 +35,8 @@ module.exports.destroy= async function(req,res){
            
            
             })
-            
-            return res.json(200,{
+            console.log("post is going to be deleted via api call")
+            return res.status(200).json({
                 message:"post and associated comment deleted succesfully"
             });
         }else{
@@ -40,11 +44,16 @@ module.exports.destroy= async function(req,res){
                 message:"You cannot delete this post"
             })
         }
+    }else{
+        return res.status(200).json({
+            message:"The post is not found"
+        })
+    }
     }
     catch(err){
     //    req.flash('error',err);
     console.log(err)
-        return res.json(500,{
+        return res.status(500).json({
           
             message:"Internal server error"
     })

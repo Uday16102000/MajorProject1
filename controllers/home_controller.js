@@ -8,10 +8,12 @@ let posts=await Post.find({})
 .sort('-createdAt')
 .populate('user')
 .populate({
+    
     path:'comments',populate:{
-        path:'user post'
+        path:'user'
     }
 })
+// console.log(posts);
 let users= await User.find({});
 
 return res.render('home1',{
@@ -19,7 +21,14 @@ return res.render('home1',{
     posts:posts,
     all_users:users
 
-})}catch(err){
+})
+
+    // return res.status(200).json({
+    //     title:"Codeial|Home",
+    //     posts:posts,
+    //     all_users:users
+    // })
+}catch(err){
 
         console.log('Error',err)
         return;

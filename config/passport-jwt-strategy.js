@@ -24,11 +24,11 @@ passport.use(new JWTStrategy(opts,function(jwtPayLoad,done){
         }
         else if(user)
         {
-            return(null,user)
+            return done(null,user)
         }
         else
         {
-            return(null,false)
+            return done(null,false)
         }
     })
 }))

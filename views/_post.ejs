@@ -1,4 +1,6 @@
-<li id="post-<%= post._id %>" >
+
+<li id="post-<%=post._id%>" >
+       
     <p>
             <% if(locals.user && locals.user.id==post.user.id){%>
                     <small>
@@ -31,5 +33,5 @@
                     </ul>
              </div>
     </div>
-    </li>
+    
     <script src="js/home_comments.js"></script>
