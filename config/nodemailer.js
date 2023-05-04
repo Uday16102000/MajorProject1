@@ -24,7 +24,7 @@ let renderTemplate = (data, relativePath) => {
                 return;
 
             }
-
+            mainHTML = template;
         })
     return mainHTML;
 
