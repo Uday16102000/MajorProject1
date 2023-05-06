@@ -1,12 +1,27 @@
-<div>
 
-    <p>
-        Hii! <strong><%= comment.user.name %> ! </strong> <%= comment.user.name %> !
-    </p>
-    <br>
-    <br>
-    <p>Your comment <strong><%=comment.content %></strong> just got published in <b>Codeial</b> </p>
-    <br>
-    <br>
-    <p>Thank You ! <%= comment.user.name %></p>
-</div>
+
+``<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <!-- <link rel="stylesheet" type="text/css" href="/css/new_comment.css"> -->
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="comment-mailer-body">
+
+        <p class="comment-content-mailer">
+            Hii! <strong><%= comment.user.name %> ! </strong> <%= comment.user.name %> !
+        </p>
+        <br>
+        <br>
+        <p class="comment-content-mailer">Your comment <strong><%=comment.content %></strong> just got published in <b>Codeial</b> </p>
+        <br>
+        <br>
+        <p>Thank You ! <%= comment.user.name %></p>
+    </div>
+</body>
+</html>`

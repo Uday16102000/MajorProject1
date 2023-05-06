@@ -1,0 +1,11 @@
+body {
+  background-color: black;
+}
+
+#comment-mailer-body {
+  background-color: orangered;
+}
+
+.comment-content-maile {
+  font-size: 5px;
+}/*# sourceMappingURL=new_comment.css.map */
